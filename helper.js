@@ -34,12 +34,18 @@ const clearCurrentMovie = () => {
 const likeMovie = () => {
     clearCurrentMovie();
     showRandomMovie();
+    //Challenge part -> increase like score
+    const likeScore = document.getElementById('likeScore');
+    likeScore.innerHTML += 1;
 };
 
 // After disliking a movie, clears the current movie from the screen and gets another random movie
 const dislikeMovie = () => {
     clearCurrentMovie();
     showRandomMovie();
+    //Challenge part -> increase dislike score
+    const dislikeScore = document.getElementById('dislikeScore');
+    dislikeScore.innerHTML += 1;
 };
 
 // Create HTML for movie poster
@@ -73,11 +79,11 @@ const createMovieOverview = (overview) => {
 
 // Create HTML for movie release-date
 const createMovieReleaseDate = (date) => {
-    const DateParagraph = document.createElement('p');
-    DateParagraph.setAttribute('id', 'movieReleaseDate');
-    DateParagraph.innerHTML = `Release-date:&nbsp;&nbsp;&nbsp;${date}`;
+    const dateParagraph = document.createElement('p');
+    dateParagraph.setAttribute('id', 'movieReleaseDate');
+    dateParagraph.innerHTML = `Release-date:&nbsp;&nbsp;&nbsp;${date}`;
   
-    return DateParagraph;
+    return dateParagraph;
 };
 
 // Returns a random movie from the first page of movies
@@ -105,7 +111,7 @@ const displayMovie = (movieInfo) => {
     moviePosterDiv.appendChild(moviePoster);
     movieTextDiv.appendChild(titleHeader);
     movieTextDiv.appendChild(overviewText);
-     movieTextDiv.appendChild(releaseDate);
+    movieTextDiv.appendChild(releaseDate);
   
     showBtns();
     likeBtn.onclick = likeMovie;

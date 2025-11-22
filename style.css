@@ -76,13 +76,14 @@ select {
     height: auto;
 }
 
+/* Like and Dislike Buttons Styles */
 #likeOrDislikeBtns {
     text-align: center;
     margin: 0px auto;  
 }
 
 #likeBtn, #dislikeBtn {
-    padding: 15px 25px;
+    padding: 25px 25px 5px;
     font-size: 25px;
     border-radius: 12px;
     border-style: none;
@@ -95,6 +96,10 @@ select {
 }
 #likeBtn:hover {
   box-shadow: 0 0 10px lightgreen;
+}
+#likeScore, #dislikeScore {
+    font-size: 20px;
+    margin-top: 10px;
 }
 
 #dislikeBtn {
