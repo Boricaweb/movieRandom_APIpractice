@@ -47,7 +47,7 @@ img#moviePoster {
     line-height: 1.25;
 }
 
-#movieTitle, #movieOverview {
+#movieTitle, #movieOverview, #movieReleaseDate {
     padding:  32px;
 }
 
@@ -93,8 +93,14 @@ select {
     background-color: #249e57;
     color: darkgreen;
 }
+#likeBtn:hover {
+  box-shadow: 0 0 10px lightgreen;
+}
 
 #dislikeBtn {
     background-color: #c74a4a;
     color: #910000;
+}
+#dislikeBtn:hover {
+  box-shadow: 0 0 10px red;
 }

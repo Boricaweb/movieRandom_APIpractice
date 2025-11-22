@@ -71,6 +71,15 @@ const createMovieOverview = (overview) => {
     return overviewParagraph;
 };
 
+// Create HTML for movie release-date
+const createMovieReleaseDate = (date) => {
+    const DateParagraph = document.createElement('p');
+    DateParagraph.setAttribute('id', 'movieReleaseDate');
+    DateParagraph.innerHTML = `Release-date:&nbsp;&nbsp;&nbsp;${date}`;
+  
+    return DateParagraph;
+};
+
 // Returns a random movie from the first page of movies
 const getRandomMovie = (movies) => {
     const randomIndex = Math.floor(Math.random() * movies.length);
@@ -89,11 +98,14 @@ const displayMovie = (movieInfo) => {
     const moviePoster = createMoviePoster(movieInfo.poster_path);
     const titleHeader = createMovieTitle(movieInfo.title);
     const overviewText = createMovieOverview(movieInfo.overview);
+    //Challenge part -> add movie's release-date
+    const releaseDate = createMovieReleaseDate(movieInfo.release_date);
   
-    // Append title, poster, and overview to page
+    // Append title, poster, overview, and release-date to page
     moviePosterDiv.appendChild(moviePoster);
     movieTextDiv.appendChild(titleHeader);
     movieTextDiv.appendChild(overviewText);
+     movieTextDiv.appendChild(releaseDate);
   
     showBtns();
     likeBtn.onclick = likeMovie;
