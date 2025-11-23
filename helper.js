@@ -36,7 +36,9 @@ const likeMovie = () => {
     showRandomMovie();
     //Challenge part -> increase like score
     const likeScore = document.getElementById('likeScore');
-    likeScore.innerHTML += 1;
+    let score = likeScore.innerHTML;
+    score ++;
+    likeScore.innerHTML = score;
 };
 
 // After disliking a movie, clears the current movie from the screen and gets another random movie
@@ -45,7 +47,9 @@ const dislikeMovie = () => {
     showRandomMovie();
     //Challenge part -> increase dislike score
     const dislikeScore = document.getElementById('dislikeScore');
-    dislikeScore.innerHTML += 1;
+    let score = dislikeScore.innerHTML;
+    score++;
+    dislikeScore.innerHTML = score;
 };
 
 // Create HTML for movie poster
