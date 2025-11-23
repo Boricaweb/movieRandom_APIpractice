@@ -31,10 +31,15 @@ const getMovies = async () => {
     const response = await fetch(urlToFetch);
     if (response.ok) {
       const jsonResponse = await response.json();
-      console.log(jsonResponse);
-      jsonResponse.page = Math.floor(Math.random()*jsonResponse.total_pages);
-      const movies = jsonResponse.results;
-      console.log(movies);
+      //console.log(jsonResponse);
+      //Random page of movie API 
+      const randomPage = Math.floor(Math.random()*jsonResponse.total_pages) + 1;
+      const requestParamsAgain = `?api_key=${tmdbKey}&with_genres=${selectedGenre}&page=${randomPage}`;
+      const urlToFetchAgain = `${tmdbBaseUrl}${discoverMovieEndpoint}${requestParams}`;
+      const responseAgain = await fetch(urlToFetchAgain);
+      const jsonResponseAgain = await responseAgain.json();
+      const movies = jsonResponseAgain.results;
+      //console.log(movies);
       return movies;
     }
   } catch (error) {
@@ -47,7 +52,7 @@ const getMovies = async () => {
 const getMovieInfo = async (movie) => {
   const movieId = movie.id;
   const movieEndpoint = `/movie/${movieId}`;
-  const requestParams = `?api_key=${tmdbKey}`
+  const requestParams = `?api_key=${tmdbKey}`;
   const urlToFetch = `${tmdbBaseUrl}${movieEndpoint}${requestParams}`;
 
   try {
