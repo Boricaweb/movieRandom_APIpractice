@@ -32,6 +32,7 @@ const getMovies = async () => {
     if (response.ok) {
       const jsonResponse = await response.json();
       console.log(jsonResponse);
+      jsonResponse.page = Math.floor(Math.random()*jsonResponse.total_pages);
       const movies = jsonResponse.results;
       console.log(movies);
       return movies;
